@@ -1,0 +1,55 @@
+﻿
+
+manage users
+	area/acount/manage/index and _layout get full name of user
+	same page add user first and last name
+	maybe user image
+
+
+add links, website, twitter, facebook etc.
+ need one to many link model
+
+notes feature
+-----------------------------------------
+
+
+hamburger menu align links right
+
+cookie consent not poppiing up on load - maybe has to be online to work
+
+update links in readme, privacy, terms,cookies
+readme file image links
+
+screen shots od symetrak for readme
+
+move local postgres db to raleway
+
+======================================================================================
+
+
+
+So the AppUser to Category classes are one to many?
+And the Category to Contact classes are many to many?
+
+Why would we need a one to many relationship between the AppUser and Category classes
+Isn't that covered by the many to many with the contact and category?
+Why would the AppUser need a category, It seems only contacts get a category?
+Does a contact automatically become a user?
+
+are these the same?
+`var contacts = new List<Contact>();`
+`List<Contact> contacts = new();`
+
+
+what is the purpose of this line for the categories select box
+`onfocus="this.selectedIndex=-1;this.blur();`
+
+in the SearchCotacts method we have
+`return View(nameof(Index),contacts);`
+I wonder how this works since the index view is expecting an `int categoryId` to be passed into it.
+
+
+Are these the same?
+ = string.Empty;
+ = "";
+

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ContactPro.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="catdiv">
+    <div class="row justify-content-center">
+        <div class="col-5 mb-2">
+            <a class="btn btn-primary rounded" asp-action="Create">Create New</a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td class="d-flex justify-content-end">
+                                @if (item.Name == "_Uncategorized")
+                                {
+                                    <span>Default</span>
+                                }
+                                else
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="me-3 editIcons tooltip stayback" title="Edit Category"><i class="bi bi-pencil-fill"></i></a>
+                                    <a asp-action="EmailCategory" asp-route-id="@item.Id" class="me-3 editIcons tooltip stayback" title="Email Category"><i class="bi bi-envelope-fill"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="editIcons text-danger tooltip stayback" title="Delete Category"><i class="bi bi-trash-fill "></i></a>
+                                    <a asp-action="Index" asp-controller="Contacts" asp-route-categoryId="@item.Id" class="editIcons text-danger tooltip ms-3 stayback" title="Show Contacts"><i class="bi bi-eye-fill"></i></a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <!--Sweet Alerts-->
+    <script>
+        let message = '@(ViewBag.SwalMessage)';
+        if (!message.includes("Error") && message != '') {
+            Swal.fire({
+                backdrop: false,
+                icon: 'success',
+                title: message,
+                showConfirmButton: true
+            })
+        } else if (message.includes("Error")) {
+            Swal.fire({
+                backdrop: false,
+                icon: 'error',
+                title: 'Oops...',
+                text: message
+            })
+        }
+    </script>
+
+    }

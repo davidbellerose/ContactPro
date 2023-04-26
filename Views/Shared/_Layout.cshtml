@@ -1,0 +1,135 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ContactPro.Models
+
+@inject SignInManager<AppUser> SignInManager
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ContactPro</title>
+
+
+    <!--fonts-->
+    @*    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>*@
+    @*<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;800&family=Roboto:ital,wght@0,100;0,400;0,900;1,100;1,300;1,500;1,900&display=swap"*@
+    @*rel="stylesheet">*@
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+    <!--Dev Icons-->
+    <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" rel="stylesheet">
+    <!--Bootstrap icons-->
+    @*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">*@
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <span id="top"></span>
+        <!--  NEW NAV  -->
+        <nav class="navbar navbar-expand-md navbar-light fixed-top border-bottom border-light navShadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/symetrak_logo2.png" height=50></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Contacts" asp-action="Index">Contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                            </li>
+                        }
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="content">
+        <section class="container-fluid">
+            @RenderBody()
+        </section>
+    </main>
+    <a href="#" id="open_preferences_center">Update cookies preferences</a>
+    <footer class="footer container-fluid">
+        <div class="row align-items-center py-2">
+            <div class="col-12 col-md-4 d-flex flex-column order-md-1 order-3">
+                <div class="col-12 text-white d-flex justify-content-md-start justify-content-center" style="font-size:0.8rem;">
+                    &copy; 2022 David Bellerose All Rights Reserved
+                </div>
+                <div class="col-12 d-flex justify-content-md-start justify-content-center" style="font-size:0.8rem;">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy" class="ms-2">Privacy</a>
+                    <a asp-area="" asp-controller="Home" asp-action="TermsAndConditions" class="ms-2">Terms & Conditions</a>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 d-flex justify-content-center order-md-2 order-1">
+                <img src="~/img/symetrak_logo2.png" height="50">
+            </div>
+            <div class="col-12 col-md-4  d-flex justify-content-md-end justify-content-center order-2 order-md-1">
+                <a href="https://www.davidbellerose.com" target="_blank" class="me-3 ">
+                    <i class="bi bi-briefcase-fill"></i>
+                </a>
+                <a href="https://www.davidbellerose.com/blog" target="_blank" class="me-3" title="Blog"><i class="bi bi-chat-text-fill"></i></a>
+                <a href="https://www.linkedin.com/in/david-bellerose" target="_blank" class="me-3" title="Linked In"><i class="bi bi-linkedin"></i></a>
+                <a href="https://twitter.com/DavidEBellerose" target="_blank" class="me-3" title="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://github.com/daveyedgar" target="_blank" class="me-3" title="Github"><i class="bi bi-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    <div class="back-to-top-wrapper">
+        <a href="#top" id="back-to-top-link" class="back-to-top-link" aria-label="Scroll to Top"><i class="bi bi-arrow-up-short"></i></a>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    @*<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>*@
+
+    @*<script src="~/js/sweetalert2.all.min.js"></script>*@
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+    <!-- This goes at the end of the landing page -->
+
+    <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+    <script type="text/javascript" charset="UTF-8">
+        document.addEventListener('DOMContentLoaded', function () {
+            cookieconsent.run({
+                "notice_banner_type": "headline",
+                "consent_type": "express",
+                "palette": "light",
+                "language": "en",
+                "page_load_consent_levels": ["strictly-necessary"],
+                "notice_banner_reject_button_hide": false,
+                "preferences_center_close_button_hide": false,
+                "page_refresh_confirmation_buttons": false,
+                "website_name": "https://www.davidbellerose.com",
+                "website_privacy_policy_url": "https://www.davidbellerose.com/privacy.html"
+            });
+        });
+    </script>
+    <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/">Free Privacy Policy Generator</a></noscript>
+    <!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

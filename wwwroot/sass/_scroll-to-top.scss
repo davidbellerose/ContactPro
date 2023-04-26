@@ -1,0 +1,69 @@
+﻿
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+main {
+    position: relative;
+}
+
+
+
+/* How far of a scroll travel within <main> prior to the
+   link appearing */
+$scrollLength: 100vh;
+
+.back-to-top-wrapper {
+    position: absolute;
+    top: $scrollLength;
+    right: 0.25rem;
+    // Optional, extends the final link into the
+    // footer at the bottom of the page
+    // Set to `0` to stop at the end of `main`
+    bottom: -5em;
+    // Required for best support in browsers not supporting `sticky`
+    width: 3em;
+    // Disable interaction with this element
+    pointer-events: none;
+}
+
+
+.back-to-top-link {
+    // `fixed` is fallback when `sticky` not supported
+    position: fixed;
+    // preferred positioning, requires prefixing for most support, and not supported on Safari
+    // @link https://caniuse.com/#search=position%3A%20sticky
+    /*position: -webkit-sticky;*/
+    /*position: sticky;*/
+    // reinstate clicks
+    pointer-events: all;
+    // achieves desired positioning within the viewport
+    // relative to the top of the viewport once `sticky` takes over, or always if `fixed` fallback is used
+    top: calc(100vh - 7.5rem);
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50%;
+    background-color: blue;
+    color: #fff;
+    font-size: 3rem;
+    line-height: 3rem;
+    width: 3rem;
+    height: 3rem;
+    display: none;
+    transition: opacity 5s;
+}
+
+.back-to-top-link:hover {
+    color: greenyellow;
+}
+
+
+.back-to-top-link.animated {
+    opacity: 1;
+}
+
+
+
+
+
+
