@@ -2,7 +2,7 @@
 
 namespace ContactPro.Helpers
 {
-    public class ConnectionHelper
+    public static class ConnectionHelper
     {
         public static string GetConnectionString(IConfiguration configuration)
         {
@@ -14,7 +14,7 @@ namespace ContactPro.Helpers
             //RAILWAY
 
 
-            return (string.IsNullOrEmpty(databaseUrl) ? connectionString : BuildConnectionString(databaseUrl));
+            return string.IsNullOrEmpty(databaseUrl) ? connectionString : BuildConnectionString(databaseUrl);
         }
 
         // build connection string from environment for Raleway
@@ -22,7 +22,7 @@ namespace ContactPro.Helpers
         {
             var databaseUri = new Uri(databaseUrl);
             var userInfo = databaseUri.UserInfo.Split(':');
-            var buidler = new NpgsqlConnectionStringBuilder
+            var builder = new NpgsqlConnectionStringBuilder
             {
                 Host = databaseUri.Host,
                 Port = databaseUri.Port,
@@ -33,7 +33,7 @@ namespace ContactPro.Helpers
                 TrustServerCertificate = true
             };
 
-            return buidler.ToString();
+            return builder.ToString();
         }
     }
 }
