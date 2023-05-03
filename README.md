@@ -57,7 +57,7 @@
 * ![Inkscape}](https://img.shields.io/badge/inkscape-000000?style=for-the-badge&logo=inkscape)
 * ![Blender}](https://img.shields.io/badge/blender-5c5543?style=for-the-badge&logo=blender)
 * ![Gimp}](https://img.shields.io/badge/GIMP-5c5543?style=for-the-badge&logo=GIMP)
-* 
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ---
