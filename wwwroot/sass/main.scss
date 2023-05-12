@@ -4,6 +4,7 @@
 @import '_tooltip.scss';
 @import '_scroll-to-top';
 @import '_category-tag';
+@import '_cookie-modal.scss';
 
 
 html,
@@ -26,9 +27,10 @@ body {
     font-size: 1rem;
 }
 
-.main-container {
-    margin-top: 30px !important;
-}
+//.main-container {
+//    margin-top: 30px !important;
+//}
+
 
 section {
     min-height: calc(100vh - 180px);
@@ -41,23 +43,22 @@ section {
 .footer {
     flex-shrink: 0;
     background-color: #333333;
+    position: static;
 }
 
 .footer i {
     color: #0e6f93;
 }
 
+
 /*#content {
     min-height: calc(100vh - 40px);
 }*/
-
 /*#footer {
     height: 20px;
     background: #222;
     color: white;
 }*/
-
-
 /*--Button Overrides --*/
 /*-- Button styles override Bootstrap Styles --*/
 .btn-outline-primary {
@@ -147,6 +148,21 @@ main {
     flex: 1 0 auto;
     padding-top: 5.5rem;
     /*padding-bottom: 1rem;*/
+}
+
+/*remove space from bottom of home index page*/
+.space-bottom {
+    //height: calc(100vh - 500px)
+    height: 110vh;
+    padding: 0;
+    margin: 0;
+    //min-height: calc(100vh - 800px) !important;
+}
+
+// layout landing page main margins
+.margins {
+    padding: 0 !important;
+    //margin-top: 2rem !important;
 }
 
 .heroCard {
@@ -305,6 +321,17 @@ select option:checked {
 
 select option:hover {
     background-color: lightblue;
+}
+
+
+.head{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+
+.head i{
+    color: $my-primary;
 }
 
 

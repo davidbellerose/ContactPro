@@ -11,7 +11,11 @@
     ViewData["Title"] = "Index";
 }
 
-
+<div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-8 col-md-10 text-start mb-5 mt-2">
+        <span class="head"><i class="bi bi-person-lines-fill me-3"></i>Contacts</span>
+    </div>
+</div>
 <div class="row d-flex justify-content-center">
     <div class="col-12 col-lg-8 col-md-10 text-start mb-2">
         <a class="btn btn-primary rounded" asp-action="Create">Create New</a>
@@ -84,9 +88,9 @@
                                         <span class="fw-bold me-2">DOB:</span>@Html.DisplayFor(modelItem => contact.BirthDate)
                                     </div>
                                     <div class="fs-4 mt-4 stayback">
-                                        <a class="me-3 editIcons tooltip" title="Edit Contact" asp-action="Edit" asp-route-id="@contact.Id"><i class="bi bi-pencil-fill "></i></a>
-                                        <a class="me-3 editIcons tooltip" title="Email Contact" asp-action="EmailContact" asp-route-id="@contact.Id"><i class="bi bi-envelope-fill "></i></a>
-                                        <a class="me-3 editIcons tooltip" title="Delete Contact" asp-action="Delete" asp-route-id="@contact.Id"><i class="bi bi-trash-fill text-danger "></i></a>
+                                        <a class="me-3 editIcons" asp-action="Edit" asp-route-id="@contact.Id"><i class="bi bi-pencil-fill "></i></a>
+                                        <a class="me-3 editIcons" asp-action="EmailContact" asp-route-id="@contact.Id"><i class="bi bi-envelope-fill "></i></a>
+                                        <a class="me-3 editIcons" asp-action="Delete" asp-route-id="@contact.Id"><i class="bi bi-trash-fill text-danger "></i></a>
                                     </div>
                                 </div>
                             </div>

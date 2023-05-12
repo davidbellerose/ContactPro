@@ -29,7 +29,7 @@ builder.Services.AddScoped<IAddressBookService, AddressBookService>();
 builder.Services.AddScoped<IEmailSender, EmailService>();
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 
-
+// to tell railway to run migration
 var app = builder.Build();
 var scope = app.Services.CreateScope();
 await DataHelper.ManageDataAsync(scope.ServiceProvider);

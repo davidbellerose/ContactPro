@@ -1,32 +1,32 @@
 ﻿
 
+
+readme
+screen shots of symetrak for readme
+
+uplaod to railway
+
+
+------------------------------------------
+features
+-----------------------------------------
 manage users
 	area/acount/manage/index and _layout get full name of user
 	same page add user first and last name
 	maybe user image
 
-
-add links, website, twitter, facebook etc.
- need one to many link model
-
 notes feature
------------------------------------------
 
+balloons are getting in the way of above buttons
+	instead add extra column at end of buttons to show innerhtml of action description
+
+collect profile photos
 
 hamburger menu align links right
 
-cookie consent not poppiing up on load - maybe has to be online to work
-
-update links in readme, privacy, terms,cookies
-readme file image links
-
-screen shots od symetrak for readme
-
-move local postgres db to raleway
-
 ======================================================================================
 
-
+========================================================================
 
 So the AppUser to Category classes are one to many?
 And the Category to Contact classes are many to many?

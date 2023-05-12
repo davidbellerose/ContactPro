@@ -12,7 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ContactPro</title>
 
-
+    <!-- Favicons -->
+    <link href="~/img/dblogo.svg" rel="icon" />
+    <link href="~/img/dblogo.svg" rel="apple-touch-icon" />
     <!--fonts-->
     @*    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>*@
@@ -55,20 +57,76 @@
                                 <a class="nav-link" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
                             </li>
                         }
-
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    <main class="content">
-        <section class="container-fluid">
+    <main class="content margins">
             @RenderBody()
-        </section>
     </main>
-
-    <a href="#" id="open_preferences_center">Update cookies preferences</a>
+    <div class="js-cookiebar cookiebar">
+        <div class="ccard">
+            <div class="ccard-inner">
+                <div class="ccard-content">
+                    <h4 class="ccard-title">Cookie Conset</h4>
+                    <p>
+                        https://davidbellerose.com uses cookies (and other techniques) to collect information about the use of the
+                        platform in order to analyze and improve your experience, for the use of social media, and to ensure that
+                        advertisements are relevant to you. See our <a href="https://www.davidbellerose.com/cookie.html" target="_blank" class="link">
+                            Cookie Policy
+                        </a>, <a href="https://davidbellerose.com/terms.html" target="_blank" class="link">Terms &#38; Conditions</a>,
+                        and <a href="https://davidbellerose.com/privacy.html" target="_blank" class="link">Privacy Statement</a> for more information.
+                        By continuing on this site and accepting our cookies you agree to the
+                        collection of information on this basis by us and by third parties
+                        on the platform.
+                        <h6>Please customize your cookie settings below.</h6>
+                        <hr>
+                        <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2 d-flex justify-content-center">
+                            <div class="col">
+                                <label class="custom-control material-switch">
+                                    <input id="basic_chkbx" class="material-switch-control-input" role="switch" type="checkbox" name="items" value="true" disabled checked />
+                                    <span class="material-switch-control-indicator switch-basic"></span>
+                                    Basic
+                                    <!-- <label class="d-flex align-items-center justify-content-center me-2" for="basic_chkbx">Basic</label> -->
+                                </label>
+                            </div>
+                            <div class="col">
+                                <!-- <label class="d-flex align-items-center justify-content-center me-2" for="preferences_chkbx">Preferences</label> -->
+                                <label class="custom-control material-switch">
+                                    <input id="preferences_chkbx" class="material-switch-control-input" type="checkbox" name="items" value="true" checked />
+                                    <span class="material-switch-control-indicator"></span>
+                                    Preferences
+                                </label>
+                            </div>
+                            <div class="col">
+                                <!-- <label class="d-flex align-items-center justify-content-center me-2" for="statistics_chkbx">Statistics</label> -->
+                                <label class="custom-control material-switch">
+                                    <input id="statistics_chkbx" class="material-switch-control-input" type="checkbox" name="items" value="true" checked />
+                                    <span class="material-switch-control-indicator"></span>
+                                    Statistics
+                                </label>
+                            </div>
+                            <div class="col">
+                                <!-- <label class="d-flex align-items-center justify-content-center me-2" for="marketing_chkbx">Marketing</label> -->
+                                <label class="custom-control material-switch">
+                                    <input id="marketing_chkbx" class="material-switch-control-input" type="checkbox" name="items" value="true" checked />
+                                    <span class="material-switch-control-indicator"></span>
+                                    Marketing
+                                </label>
+                            </div>
+                            <!-- <div class="col"> -->
+                            <button type="button" class="btn btn-primary d-flex w-100 justify-content-center mt-3" id="cookiebutton" onclick="onCookieButtonClick()">Accept</button>
+                            <!-- </div> -->
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="back-to-top-wrapper">
+        <a href="#top" id="back-to-top-link" class="back-to-top-link" aria-label="Scroll to Top"><i class="bi bi-arrow-up-short"></i></a>
+    </div>
 
     <footer class="footer container-fluid">
         <div class="row align-items-center py-2">
@@ -78,14 +136,16 @@
                     &copy; 2022 David Bellerose All Rights Reserved
                 </div>
                 <div class="col-12 d-flex justify-content-md-start justify-content-center" style="font-size:0.8rem;">
-                    <a asp-area="" asp-controller="Home" asp-action="Privacy" class="ms-2">Privacy</a>
-                    <a asp-area="" asp-controller="Home" asp-action="TermsAndConditions" class="ms-2">Terms & Conditions</a>
+                    <a class="ms-2" href="https://davidbellerose.com/privacy.html" target="_blank">Privacy</a> &nbsp;
+                    <a class="ms-2" href="https://davidbellerose.com/terms.html" target="_blank">Terms & Conditions</a> &nbsp;
+                    <a class="ms-2" href="https://davidbellerose.com/cookies.html" target="_blank">Cookie Policy</a> &nbsp;
+                    <button class="btn btn-primary js-change-cookie">Change Cookie Preferences</button>
                 </div>
             </div>
             <div class="col-12 col-md-4 d-flex justify-content-center order-md-2 order-1">
                 <img src="~/img/symetrak_logo2.png" height="50">
             </div>
-            <div class="col-12 col-md-4  d-flex justify-content-md-end justify-content-center order-2 order-md-1">
+            <div class="col-12 col-md-4  d-flex justify-content-md-end justify-content-center order-md-3 order-2">
                 <a href="https://www.davidbellerose.com" target="_blank" class="me-3 ">
                     <i class="bi bi-briefcase-fill"></i>
                 </a>
@@ -96,39 +156,11 @@
             </div>
         </div>
     </footer>
-    <div class="back-to-top-wrapper">
-        <a href="#top" id="back-to-top-link" class="back-to-top-link" aria-label="Scroll to Top"><i class="bi bi-arrow-up-short"></i></a>
-    </div>
 
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-    <!-- This goes at the end of the landing page -->
-
-    <script type="text/javascript" src="https://www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
-    <script type="text/javascript" charset="UTF-8">
-        document.addEventListener('DOMContentLoaded', function () {
-            cookieconsent.run({
-                "notice_banner_type": "headline",
-                "consent_type": "express",
-                "palette": "light",
-                "language": "en",
-                "page_load_consent_levels": ["strictly-necessary"],
-                "notice_banner_reject_button_hide": false,
-                "preferences_center_close_button_hide": false,
-                "page_refresh_confirmation_buttons": false,
-                "website_name": "https://www.davidbellerose.com",
-                "website_privacy_policy_url": "https://www.davidbellerose.com/privacy.html"
-            });
-        });
-    </script>
-
-    <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/">Free Privacy Policy Generator</a></noscript>
-    <!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
