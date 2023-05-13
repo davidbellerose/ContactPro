@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ContactPro.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230414203327_004")]
-    partial class _004
+    [Migration("20230513194009_001-init")]
+    partial class _001init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -127,8 +127,7 @@ namespace ContactPro.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -171,8 +170,7 @@ namespace ContactPro.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.Property<byte[]>("ImageData")
                         .HasColumnType("bytea");
@@ -182,11 +180,10 @@ namespace ContactPro.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
-                    b.Property<int?>("PhoneNumber")
-                        .HasColumnType("integer");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
 
                     b.Property<int>("States")
                         .HasColumnType("integer");
@@ -355,7 +352,7 @@ namespace ContactPro.Migrations
             modelBuilder.Entity("ContactPro.Models.Category", b =>
                 {
                     b.HasOne("ContactPro.Models.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("Categories")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -366,7 +363,7 @@ namespace ContactPro.Migrations
             modelBuilder.Entity("ContactPro.Models.Contact", b =>
                 {
                     b.HasOne("ContactPro.Models.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("Contacts")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -423,6 +420,13 @@ namespace ContactPro.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ContactPro.Models.AppUser", b =>
+                {
+                    b.Navigation("Categories");
+
+                    b.Navigation("Contacts");
                 });
 #pragma warning restore 612, 618
         }
