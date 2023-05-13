@@ -8,11 +8,8 @@ namespace ContactPro.Helpers
         {
             var connectionString = configuration.GetSection("pgSettings")["pgConnection"];
 
-            //HEROKU
-            var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
-
             //RAILWAY
-
+            var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
 
             return string.IsNullOrEmpty(databaseUrl) ? connectionString : BuildConnectionString(databaseUrl);
         }
