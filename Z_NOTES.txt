@@ -1,8 +1,6 @@
 ﻿
+data seeder
 
-
-readme
-screen shots of symetrak for readme
 
 uplaod to railway
 
