@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿
+
+using Npgsql;
 
 namespace ContactPro.Helpers
 {
