@@ -45,16 +45,16 @@ await DataHelper.ManageDataAsync(scope.ServiceProvider);
 //seed database
 if (args.Length == 1 && args[0].ToLower() == "seeddata")
 {
-    SeedData(app);
+    SeedData(app).GetAwaiter().GetResult();
 }
 
-void SeedData(IHost app)
+async Task SeedData(IHost app)
 {
-    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
-    using (var scope = scopedFactory.CreateScope())
+    using (var scope = app.Services.CreateScope())
     {
-        var service = scope.ServiceProvider.GetService<DataSeeder>();
-        service.SeedDataAsync();
+        var services = scope.ServiceProvider;
+        var dataSeeder = services.GetRequiredService<DataSeeder>();
+        await dataSeeder.SeedDataAsync();
     }
 }
 

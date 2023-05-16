@@ -9,9 +9,9 @@ namespace ContactPro.Helpers
         private readonly ApplicationDbContext _dbContext;
         private readonly UserManager<AppUser> _userManager;
 
-        private static string appUserId;
-        private static int contactId;
-        private static int categoryId;
+        private string? appUserId;
+        private int contactId;
+        private int categoryId;
 
         public DataSeeder(ApplicationDbContext dbContext, UserManager<AppUser> userManager)
         {
@@ -28,25 +28,25 @@ namespace ContactPro.Helpers
         }
         private async Task SeedUsersAsync()
         {
-            if (_dbContext.Users.Any())
+            if (!_dbContext.Users.Any())
             {
-                return;
+                //start repeat
+                var demoUser = new AppUser()
+                {
+                    UserName = "demouser@mail.com",
+                    Email = "demouser@mail.com",
+                    FirstName = "Demo",
+                    LastName = "User",
+                    EmailConfirmed = true
+                };
+
+                await _userManager.CreateAsync(demoUser, "Abc&123!");
+                await _dbContext.SaveChangesAsync();
+
+                appUserId = _userManager.Users.FirstOrDefault(u => u.Email == "demouser@mail.com").Id;
+                //appUserId = _userManager.FindByEmailAsync("demouser@mail.com");
+
             }
-
-            //start repeat
-            var demoUser = new AppUser()
-            {
-                UserName = "demouser@mail.com",
-                Email = "demouser@mail.com",
-                FirstName = "Demo",
-                LastName = "User",
-                EmailConfirmed = true,
-            };
-
-            await _userManager.CreateAsync(demoUser, "Abc&123!");
-
-            appUserId = _dbContext.Users.FirstOrDefault(u => u.Email == "demouser@mail.com").Id;
-            // end repeat, the create async will save the changes
         }
 
 
@@ -71,9 +71,9 @@ namespace ContactPro.Helpers
                     // end repeat
                 };
 
-                contactId = _dbContext.Contacts.FirstOrDefault(u => u.Email == "john@mail.com").Id;
                 await _dbContext.Contacts.AddRangeAsync(contact);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
+                //contactId = _dbContext.Contacts.FirstOrDefault(u => u.Email == "john@mail.com").Id;
             }
         }
 
@@ -86,8 +86,8 @@ namespace ContactPro.Helpers
                 {
                     new Category()
                     {
+                        AppUserId = appUserId,
                         Name = "_UnCategorized",
-                        AppUserId = appUserId
                     },
                     new Category()
                     {
@@ -116,9 +116,10 @@ namespace ContactPro.Helpers
                     }
                 };
 
-                categoryId = _dbContext.Categories.FirstOrDefault(u => u.Name == "_UnCategorized").Id;
                 await _dbContext.Categories.AddRangeAsync(category);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
+
+                //categoryId = _dbContext.Categories.FirstOrDefault(u => u.Name == "_UnCategorized").Id;
             }
         }
 

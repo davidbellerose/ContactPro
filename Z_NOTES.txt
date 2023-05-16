@@ -1,8 +1,8 @@
 ﻿
-data seeder
-
 
 uplaod to railway
+
+seeding the categorycontact many to many table
 
 
 ------------------------------------------
