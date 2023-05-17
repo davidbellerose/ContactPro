@@ -1,8 +1,6 @@
 ﻿using ContactPro.Data;
 using ContactPro.Models;
-using ContactPro.Services;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace ContactPro.Helpers
 {
@@ -63,22 +61,22 @@ namespace ContactPro.Helpers
                 if (!_dbContext.Contacts.Any())
                 {
                     contact = new List<Contact>()
-                {
-                    new Contact()
                     {
-                        FirstName = "John",
-                        LastName = "Dickens",
-                        Address1 = "12 Main St.",
-                        City = "Concord",
-                        States  = ContactPro.Enums.States.NH,
-                        ZipCode = 03101,
-                        Email = "john@mail.com",
-                        BirthDate = new DateTime(1994,8,20),
-                        PhoneNumber = "2123458587",
-                        DateCreated = new DateTime(2023,5,20),
-                        AppUserId = appUserId,
-                    }
-                };
+                        new Contact()
+                        {
+                            FirstName = "John",
+                            LastName = "Dickens",
+                            Address1 = "12 Main St.",
+                            City = "Concord",
+                            States  = ContactPro.Enums.States.NH,
+                            ZipCode = 03101,
+                            Email = "john@mail.com",
+                            BirthDate = new DateTime(1994,8,20),
+                            PhoneNumber = "(212)345-8587",
+                            DateCreated = new DateTime(2023,5,20),
+                            AppUserId = appUserId,
+                        }
+                    };
 
                 }
                 await _dbContext.Contacts.AddRangeAsync(contact);

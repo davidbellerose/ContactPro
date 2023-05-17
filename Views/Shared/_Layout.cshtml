@@ -30,7 +30,9 @@
     <link href="~/lib/fontawesome/css/fontawesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
-<body>
+<body id="body">
+
+    @*<div id="loading-text">0%</div>*@
     <header>
         <span id="top"></span>
         <!--  NEW NAV  -->
@@ -63,7 +65,7 @@
         </nav>
     </header>
     <main class="content">
-        <section class="container-fluid">
+        <section id="loader" class="container-fluid">
             @RenderBody()
         </section>
     </main>

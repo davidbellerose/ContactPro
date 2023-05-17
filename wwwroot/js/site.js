@@ -34,10 +34,10 @@ function formatPhone() {
         let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
 
         if (match) {
-            str.value = '(' + match[1] + ') ' + match[2] + '-' + match[3]
+            str = '(' + match[1] + ') ' + match[2] + '-' + match[3];
+            phone.value = str;
         };
-
-
+        alert(str);
         saveBtn.disabled = false;
         //createBtn.disabled = false;
     }
@@ -188,3 +188,46 @@ changeCookie.addEventListener(
     },
     false
 );
+
+
+// **************************************************
+//
+//              PAGE LOADER
+//
+// **************************************************
+
+//document.onreadystatechange = function () {
+//    if (document.readyState !== "complete") {
+//        alert("loading");
+//        //const loadText = document.querySelector(".loading-text");
+//        //const bg = document.querySelector(".loader");
+//        //alert(loadText);
+//        //alert(bg);
+
+//        //let load = 0;
+
+//        //let interval = setInterval(blurring, 30);
+
+//        //function blurring() {
+//        //    load++;
+//        //    if (load > 99) {
+//        //        clearInterval(interval);
+//        //    }
+//        //    loadText.innerText = `${load}%`;
+//        //    loadText.style.opacity = 1 - load / 100;
+//        //    loadText.style.width = `${10 + load}%`;
+//        //    bg.style.filter = `blur(${30 - (load * 30) / 100}px)`;
+
+//        document.getElementById(
+//            "body").style.visibility = "hidden";
+//        document.getElementById(
+//            "loading-text").style.visibility = "visible";
+
+//    } else {
+//        alert("complete");
+//        document.getElementById(
+//            "loading-text").style.display = "none";
+//        document.getElementById(
+//            "body").style.visibility = "visible";
+//    }
+//};

@@ -958,3 +958,29 @@ select option:hover {
     font-size: 3rem;
   }
 }
+
+
+/*******************************************************************************************
+
+    PAGE LOADER                                                                 PAGE LOADER
+
+***********************************************************************************************/
+
+/*.bg {
+    background: url("https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg") no-repeat center center/cover;
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: calc(100vw + 80px);
+    height: calc(100vh + 80px);
+    z-index: -1;
+}*/
+
+/*.loading-text {
+    border-bottom: 2px solid white;
+    width: 200px;
+    text-align: center;
+    font-size: 10vw;
+    color: #fff;
+}
+*/

@@ -1,14 +1,19 @@
 ﻿
-phone number format not working in contact index
 
-uplaod to railway
+
 
 seeding the categorycontact many to many table
 
+uplaod to railway
+
+add photos to contacts
 
 ------------------------------------------
 features
 -----------------------------------------
+
+site loading progress bar
+
 manage users
 	area/acount/manage/index and _layout get full name of user
 	same page add user first and last name
