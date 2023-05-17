@@ -24,6 +24,7 @@ namespace ContactPro.Models
         public string? FullName { get { return $"{FirstName} {LastName}"; } }
 
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Birth Date")]
         public DateTime? BirthDate { get; set; }
 

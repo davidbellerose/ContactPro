@@ -1,6 +1,8 @@
 ﻿using ContactPro.Data;
 using ContactPro.Models;
+using ContactPro.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactPro.Helpers
 {
@@ -10,10 +12,13 @@ namespace ContactPro.Helpers
         private readonly UserManager<AppUser> _userManager;
 
         private string? appUserId;
-        private int contactId;
-        private int categoryId;
+        //private int contactId;
+        //private int categoryId;
 
         // create contact new list
+        List<Contact> contact = new List<Contact>();
+        List<Category> category = new List<Category>();
+        //Contact? contactI = new Contact();
 
 
         public DataSeeder(ApplicationDbContext dbContext, UserManager<AppUser> userManager)
@@ -27,13 +32,11 @@ namespace ContactPro.Helpers
             await SeedUsersAsync();
             await SeedContactsAsync();
             await SeedCategoriesAsync();
-            //await SeedCategoryContactAsync();
         }
         private async Task SeedUsersAsync()
         {
             if (!_dbContext.Users.Any())
             {
-                //start repeat
                 var demoUser = new AppUser()
                 {
                     UserName = "demouser@mail.com",
@@ -52,13 +55,15 @@ namespace ContactPro.Helpers
         }
 
 
+
         private async Task SeedContactsAsync()
         {
-            if (!_dbContext.Contacts.Any())
+            try
             {
-                var contact = new List<Contact>()
+                if (!_dbContext.Contacts.Any())
                 {
-                    // start repeat
+                    contact = new List<Contact>()
+                {
                     new Contact()
                     {
                         FirstName = "John",
@@ -68,17 +73,29 @@ namespace ContactPro.Helpers
                         States  = ContactPro.Enums.States.NH,
                         ZipCode = 03101,
                         Email = "john@mail.com",
+                        BirthDate = new DateTime(1994,8,20),
+                        PhoneNumber = "2123458587",
+                        DateCreated = new DateTime(2023,5,20),
                         AppUserId = appUserId,
                     }
-                    // end repeat
                 };
 
+                }
                 await _dbContext.Contacts.AddRangeAsync(contact);
+                await _dbContext.SaveChangesAsync();
+                //contactId = _dbContext.Contacts.FirstOrDefault(u => u.Email == "john@mail.com").Id;
+                //contactI = await _dbContext.Contacts.FindAsync(contactId);
+                //store whole conact instance at the top of the class
+                //contacts.categories.add vendor, 
             }
-            await _dbContext.SaveChangesAsync();
-            //contactId = _dbContext.Contacts.FirstOrDefault(u => u.Email == "john@mail.com").Id;
-            //store whole conact instance at the top of the class
-            //contacts.categories.add vendor, 
+            catch (Exception ex)
+            {
+                Console.WriteLine("*************  ERROR  *************");
+                Console.WriteLine("Error Seeding Project Priorities.");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("***********************************");
+                throw;
+            }
         }
 
 
@@ -86,7 +103,7 @@ namespace ContactPro.Helpers
         {
             if (!_dbContext.Categories.Any())
             {
-                var category = new List<Category>()
+                category = new List<Category>()
                 {
                     new Category()
                     {
@@ -119,23 +136,24 @@ namespace ContactPro.Helpers
                         AppUserId = appUserId
                     }
                 };
-
-                await _dbContext.Categories.AddRangeAsync(category);
             }
-
-            // update the contacts
+            await _dbContext.Categories.AddRangeAsync(category);
             await _dbContext.SaveChangesAsync();
 
+            // update the contacts
+            //var contactId = (await _dbContext.Fin("demouser@mail.com")).Id;
+            //var contactId = 1;
+            //Category? category = await _dbContext.Categories.FindAsync(categoryId);
+            //category.Add(contactI);
+            //await _dbContext.Categories.Add(contactI);
+            //await _dbContext.Categories.Add(contactId).ToString();
+
             //categoryId = _dbContext.Categories.FirstOrDefault(u => u.Name == "_UnCategorized").Id;
+
+            //foreach (int categoryId in CategoryList)
+            //{
+            //    await _addressBookService.AddContactToCategoryAsync(categoryId, contact.Id);
+            //}
         }
-
-
-
-
-        private async Task SeedCategoryContactAsync()
-        {
-
-        }
-
     }
 }
