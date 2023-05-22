@@ -37,26 +37,35 @@ var app = builder.Build();
 
 
 // to tell railway to run migration
-var scope = app.Services.CreateScope();
-await DataHelper.ManageDataAsync(scope.ServiceProvider);
+//var scope = app.Services.CreateScope();
 
 
 
 //seed database
-if (args.Length == 1 && args[0].ToLower() == "seeddata")
+//if (args.Length == 1 && args[0].ToLower() == "seeddata")
+//{
+//    SeedData(app).GetAwaiter().GetResult();
+//}
+
+//async Task SeedData(IHost app)
+//{
+//    using (var scope = app.Services.CreateScope())
+//    {
+//        var services = scope.ServiceProvider;
+//        var dataSeeder = services.GetRequiredService<DataSeeder>();
+//        await dataSeeder.SeedDataAsync();
+//    }
+//}
+
+using (var scope = app.Services.CreateScope())
 {
-    SeedData(app).GetAwaiter().GetResult();
+    var services = scope.ServiceProvider;
+    await DataSeeder.InitializeAsync(services);
+
+    await DataHelper.ManageDataAsync(scope.ServiceProvider);
 }
 
-async Task SeedData(IHost app)
-{
-    using (var scope = app.Services.CreateScope())
-    {
-        var services = scope.ServiceProvider;
-        var dataSeeder = services.GetRequiredService<DataSeeder>();
-        await dataSeeder.SeedDataAsync();
-    }
-}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -85,6 +94,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-SeedData(app);
+//SeedData(app);
 
 app.Run();
