@@ -2,6 +2,8 @@
 
 back to top button clear footer transition not working
 
+categories index move the heading towards center
+
 uplaod to railway
 
 add photos to contacts
