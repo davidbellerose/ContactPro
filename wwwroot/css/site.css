@@ -326,52 +326,75 @@ meter {
 /*.tooltip:hover .tooltiptext {
     visibility: visible;
 }*/
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
-main {
-  position: relative;
-}
+/*****************************************************************************************
 
-/* How far of a scroll travel within <main> prior to the
-   link appearing */
-.back-to-top-wrapper {
-  position: absolute;
-  top: 100vh;
-  right: 0.25rem;
-  bottom: -5em;
-  width: 3em;
-  pointer-events: none;
-}
+    BACK TO TOP                                                      BACK TO TOP
 
-.back-to-top-link {
+*****************************************************************************************/
+.scrollToTop {
   position: fixed;
-  /*position: -webkit-sticky;*/
-  /*position: sticky;*/
-  pointer-events: all;
-  top: calc(100vh - 7.5rem);
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 50%;
-  background-color: blue;
-  color: #fff;
-  font-size: 3rem;
-  line-height: 3rem;
-  width: 3rem;
-  height: 3rem;
+  right: 10px;
+  bottom: 20px;
   display: none;
-  transition: opacity 5s;
+  font-size: 3rem;
+  font-weight: bold;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  width: 50px;
+  z-index: 9;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.back-to-top-link:hover {
-  color: greenyellow;
+.scrollToTop:hover, .scrollToTop:focus {
+  text-decoration: none;
+  outline: none;
 }
 
-.back-to-top-link.animated {
-  opacity: 1;
+/*  to shift the location of the back to top button to clear the footer*/
+#back-top.shift {
+  bottom: 85px;
+  -webkit-transition: bottom 1s;
+  -moz-transition: bottom 1s;
+  -ms-transition: bottom 1s;
+  -o-transition: bottom 1s;
+  transition: bottom 1s;
 }
 
+@media (max-width: 990px) {
+  #back-top.shift {
+    bottom: 110px;
+    -webkit-transition: bottom 1s;
+    -moz-transition: bottom 1s;
+    -ms-transition: bottom 1s;
+    -o-transition: bottom 1s;
+    transition: bottom 1s;
+  }
+}
+@media (max-width: 880px) {
+  #back-top.shift {
+    bottom: 130px;
+    -webkit-transition: bottom 1s;
+    -moz-transition: bottom 1s;
+    -ms-transition: bottom 1s;
+    -o-transition: bottom 1s;
+    transition: bottom 1s;
+  }
+}
+@media (max-width: 621px) {
+  #back-top.shift {
+    bottom: 170px;
+    -webkit-transition: bottom 1s;
+    -moz-transition: bottom 1s;
+    -ms-transition: bottom 1s;
+    -o-transition: bottom 1s;
+    transition: bottom 1s;
+  }
+}
 .arrow_box {
   position: relative;
   background: #0e6f93;
@@ -958,29 +981,3 @@ select option:hover {
     font-size: 3rem;
   }
 }
-
-
-/*******************************************************************************************
-
-    PAGE LOADER                                                                 PAGE LOADER
-
-***********************************************************************************************/
-
-/*.bg {
-    background: url("https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg") no-repeat center center/cover;
-    position: absolute;
-    top: -40px;
-    left: -40px;
-    width: calc(100vw + 80px);
-    height: calc(100vh + 80px);
-    z-index: -1;
-}*/
-
-/*.loading-text {
-    border-bottom: 2px solid white;
-    width: 200px;
-    text-align: center;
-    font-size: 10vw;
-    color: #fff;
-}
-*/

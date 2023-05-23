@@ -11,8 +11,8 @@
     <title>@ViewData["Title"] - ContactPro</title>
 
     <!-- Favicons -->
-    <link href="./assets/img/dblogo.svg" rel="icon" />
-    <link href="./assets/img/dblogo.svg" rel="apple-touch-icon" />
+    <link href="~/img/dblogo.svg" rel="icon" />
+    <link href="~/img/dblogo.svg" rel="apple-touch-icon" />
     <!--fonts-->
     @*    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>*@
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body id="body">
-
+    <a id="back-top" class="scrollToTop" href="#top"><i class="bi bi-arrow-up-circle-fill"></i></a>
     @*<div id="loading-text">0%</div>*@
     <header>
         <span id="top"></span>
@@ -141,7 +141,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-4 d-flex justify-content-center order-md-2 order-1">
-                <img src="~/img/symetrak_logo2.png" height="50">
+                <img src="~/img/dblogo.svg" height="25">
             </div>
             <div class="col-12 col-md-4  d-flex justify-content-md-end justify-content-center order-md-3 order-2">
                 <a href="https://www.davidbellerose.com" target="_blank" class="me-3 ">
@@ -154,9 +154,7 @@
             </div>
         </div>
     </footer>
-    <div class="back-to-top-wrapper">
-        <a href="#top" id="back-to-top-link" class="back-to-top-link" aria-label="Scroll to Top"><i class="bi bi-arrow-up-short"></i></a>
-    </div>
+
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

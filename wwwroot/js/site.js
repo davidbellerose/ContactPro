@@ -1,12 +1,39 @@
-﻿// fade in and out the back to top button
+﻿
+
+// **************************************************
+//
+//              BACK TO TOP BUTTON
+//
+//      move above footer when scrolled to bottom
+//
+//
+// **************************************************
+
+
+$(document).ready(function () {
+
+    $(document).on('scroll', function () {
+        var distanceFromBottom = $(document).height() - ($(document).scrollTop() + $(window).height());
+
+        if (distanceFromBottom < 80) {
+            $('#back-top').addClass("shift");
+        } else {
+            $('#back-top').removeClass("shift");
+        }
+    });
+});
+
+
+// fade in and out the back to top button
 $(window).scroll(function () {
     if ($(document).scrollTop() > 1) {
-        $('#back-to-top-link').fadeIn(800);
+        $('#back-top').fadeIn(800);
     } else {
-        $('#back-to-top-link').fadeOut(400);
+        $('#back-top').fadeOut(400);
     }
 
 });
+
 
 
 function formatPhone() {

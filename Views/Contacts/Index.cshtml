@@ -74,7 +74,13 @@
                                     <h5 class="card-title">@Html.DisplayFor(modelItem => contact.LastName), @Html.DisplayFor(modelItem => contact.FirstName)</h5>
                                     <address class="card-text">
                                         @Html.DisplayFor(modelItem => contact.Address1)<br>
-                                        @Html.DisplayFor(modelItem => contact.Address2)<br>
+                                        @if (contact.Address2 != null)
+                                        {
+                                            @Html.DisplayFor(modelItem => contact.Address2)
+
+                                            <br>
+                                        }
+                                        
 
                                         @Html.DisplayFor(modelItem => contact.City), @Html.DisplayFor(modelItem => contact.States)  @Html.DisplayFor(modelItem => contact.ZipCode)
                                     </address>
