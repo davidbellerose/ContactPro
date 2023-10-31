@@ -14,7 +14,7 @@
 ---
 
 
-[![Github Repo}](https://img.shields.io/badge/github_repo-3884FF?style=for-the-badge&logo=github)](https://github.com/daveyedgar/ContactPro)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![GitHub repo size](https://img.shields.io/github/repo-size/daveyedgar/Tattarrattat?logo=github)
+[![Github Repo}](https://img.shields.io/badge/github_repo-3884FF?style=for-the-badge&logo=github)](https://github.com/davidbellerose/ContactPro)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![GitHub repo size](https://img.shields.io/github/repo-size/davidbellerose/Tattarrattat?logo=github)
 
 
 ---
@@ -89,7 +89,7 @@
 
 [![Twitter}](https://img.shields.io/badge/twitter-000000?style=for-the-badge&logo=twitter)](https://external.ink?to=https://twitter.com/DavidEBellerose)
 
-[![Github Repo}](https://img.shields.io/badge/github-3884FF?style=for-the-badge&logo=github)](https://external.ink?to=https://github.com/daveyedgar)
+[![Github Repo}](https://img.shields.io/badge/github-3884FF?style=for-the-badge&logo=github)](https://external.ink?to=https://github.com/davidbellerose)
 
 
 
