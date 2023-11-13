@@ -377,7 +377,7 @@ namespace ContactPro.Helpers
 
 
                 // after adding all your contacts/categories, just save once
-                await context.SaveChangesAsync();
+                //await context.SaveChangesAsync();
             }
         }
     }

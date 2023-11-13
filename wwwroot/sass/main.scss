@@ -4,7 +4,6 @@
 @import '_tooltip.scss';
 @import '_scroll-to-top';
 @import '_category-tag';
-@import '_cookie-modal.scss';
 
 
 html,
@@ -150,6 +149,12 @@ main {
     /*padding-bottom: 1rem;*/
 }
 
+.title {
+    color: #0e6f93;
+    font-weight: 900;
+    font-size: 2.5rem;
+    font-family: "Open Sans", sans-serif;
+}
 /*remove space from bottom of home index page*/
 .space-bottom {
     //height: calc(100vh - 500px)

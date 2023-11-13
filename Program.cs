@@ -37,7 +37,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await DataHelper.ManageDataAsync(scope.ServiceProvider);
-    await DataSeeder.InitializeAsync(services);
+    //await DataSeeder.InitializeAsync(services);
 
 }
 
