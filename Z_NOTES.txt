@@ -4,7 +4,7 @@ back to top button clear footer transition not working
 
 categories index move the heading towards center
 
-
+the seeder shouldn't run if db is populated, check for if exists in seeder
 
 ------------------------------------------
 features

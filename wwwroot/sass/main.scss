@@ -155,6 +155,16 @@ main {
     font-size: 2.5rem;
     font-family: "Open Sans", sans-serif;
 }
+
+.logo {
+    width: 600px;
+    height: auto;
+    //border: 5px solid #0e6f93;
+    //padding: 5px;
+    box-shadow: -4px 5px 11px -1px rgba(0,0,0,0.54);
+    -webkit-box-shadow: -4px 5px 11px -1px rgba(0,0,0,0.54);
+    -moz-box-shadow: -4px 5px 11px -1px rgba(0,0,0,0.54);
+}
 /*remove space from bottom of home index page*/
 .space-bottom {
     //height: calc(100vh - 500px)

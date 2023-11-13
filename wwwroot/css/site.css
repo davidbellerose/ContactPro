@@ -564,6 +564,14 @@ main {
   font-family: "Open Sans", sans-serif;
 }
 
+.logo {
+  width: 600px;
+  height: auto;
+  box-shadow: -4px 5px 11px -1px rgba(0, 0, 0, 0.54);
+  -webkit-box-shadow: -4px 5px 11px -1px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: -4px 5px 11px -1px rgba(0, 0, 0, 0.54);
+}
+
 /*remove space from bottom of home index page*/
 .space-bottom {
   height: 110vh;
