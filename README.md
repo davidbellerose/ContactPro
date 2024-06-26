@@ -1,15 +1,10 @@
 ###### <p align="right"><sub>top</sub></p>
 
 
-![Symetrak Logo2](wwwroot/img/symetrak_logo2.png)
+# Contact Manager
 ============
 
-# This application allows you to organize your contacts into categories for bulk emailing.
-
-##
-
-
-![Symetrak End](wwwroot/img/symetrak_end.png)
+## This application allows you to organize your contacts into categories for bulk emailing.
 
 ---
 
